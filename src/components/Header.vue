@@ -1,6 +1,9 @@
 <script>
+import Button from "@/components/Button.vue";
+
 export default {
   name: "Header",
+  components: {Button},
   props: {
     title: {
       type: String
@@ -14,6 +17,9 @@ export default {
     <h1>
       {{ title }}
     </h1>
+    <Button text="Add Task" color="green"/>
+    <Button text="Update Task" color="blue"/>
+    <Button text="Delete Task" color="red"/>
   </header>
 </template>
 
