@@ -1,11 +1,13 @@
 <script>
-import "@fortawesome/fontawesome-free/css/all.min.css";
-import "@fortawesome/fontawesome-free/js/all.min.js";
-
 export default {
   name: "Task",
   props: {
     task: Object
+  },
+  methods: {
+    onDelete(id) {
+      this.$emit('delete-task', id);
+    }
   }
 }
 </script>
@@ -14,7 +16,7 @@ export default {
   <div :class="[task.reminder ? 'reminder' : '', 'task']">
     <h3>
       {{ task.text }}
-      <i class="fa-solid fa-times"></i>
+      <i class="fa-solid fa-xmark" @click="onDelete(task.id)"></i>
     </h3>
     <p>
       {{ task.day }}

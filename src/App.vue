@@ -10,6 +10,13 @@ export default {
       tasks: []
     }
   },
+  methods: {
+    deleteTask(id) {
+      if(confirm('Are you sure?')) {
+        this.tasks = this.tasks.filter(task => task.id !== id);
+      }
+    }
+  },
   created() {
     this.tasks = [
       {
@@ -31,14 +38,14 @@ export default {
         reminder: false
       }
     ];
-  }
+  },
 }
 </script>
 
 <template>
   <div class="container">
     <Header title="Task Tracker"/>
-    <Tasks :tasks="tasks"/>
+    <Tasks :tasks="tasks" @delete-task="deleteTask"/>
   </div>
 </template>
 
