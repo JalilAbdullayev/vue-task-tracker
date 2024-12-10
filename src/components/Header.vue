@@ -8,6 +8,11 @@ export default {
     title: String,
     showAddTask: Boolean
   },
+  computed: {
+    homePage() {
+      return this.$route.path === '/';
+    }
+  }
 }
 </script>
 
@@ -17,7 +22,7 @@ export default {
       {{ title }}
     </h1>
     <Button :text="showAddTask ? 'Close' : 'Add Task'" :color="showAddTask ? 'gray' : 'green'"
-            @btn-click="$emit('toggle-add-task')"/>
+            @btn-click="$emit('toggle-add-task')" v-show="homePage"/>
   </header>
 </template>
 
