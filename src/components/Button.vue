@@ -7,14 +7,14 @@ export default {
   },
   methods: {
     onClick() {
-      console.log('clicked');
+      this.$emit('btn-click')
     }
   }
 }
 </script>
 
 <template>
-  <button @click="onClick()" :style="{backgroundColor: color}">
+  <button @click="onClick" :style="{backgroundColor: color}">
     {{ text }}
   </button>
 </template>
